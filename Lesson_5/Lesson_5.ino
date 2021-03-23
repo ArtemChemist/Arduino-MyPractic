@@ -3,15 +3,17 @@
 
 boolean buttonState;
 
+#define LED_PIN 13
+#define BUTTON_PIN 12
+
 void setup() {
-pinMode(13, OUTPUT);//Use the built-in LED 
-pinMode(12,INPUT_PULLUP);// The button is hooked up to pin12, use internal resistor, connects to GND
+pinMode(LED_PIN, OUTPUT);//Use the built-in LED 
+pinMode(BUTTON_PIN,INPUT_PULLUP);// The button is hooked up to pin12, use internal resistor, connects to GND
 
 }
 
 void loop() {
-buttonState = digitalRead(12);//Read the pin
-buttonState = !buttonState;
-digitalWrite(13, buttonState); //Invert the signal, becasue it is conected to GND
+
+digitalWrite(LED_PIN, ! digitalRead(BUTTON_PIN)); //Invert the signal, becasue it is conected to GND
   
 }
